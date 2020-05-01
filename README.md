@@ -41,3 +41,22 @@ Out: 'User[123]: python'
 In : f'User[{d["id"]}]: {d["name"]}'
 Out: 'User[123]: python'
 ```
+
+## for in
+
+list creation from for loop `for in `  
+
+```py
+stocks = [{
+    'name': '2412',
+    'close': 106
+}, {
+    'name': '2303',
+    'close': 15
+}]
+print([
+    stock['name']
+    for stock in stocks
+    if stock['close'] > 100
+]) # ['2412']
+```
