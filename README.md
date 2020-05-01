@@ -60,3 +60,19 @@ print([
     if stock['close'] > 100
 ]) # ['2412']
 ```
+
+## json
+
+```py
+import json
+
+s = '{"name":"jacob"}'
+
+d = json.loads(s)
+print(d['name']) #jacob
+
+d = [{
+    'name': 'hsu'
+}]
+print(json.dumps(d)) #[{"name": "hsu"}]
+```
