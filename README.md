@@ -91,3 +91,28 @@ print(result.path.split('/')[-1]) #DYAJFQ-1900A9TCG
 ```
 
 ParseResult(scheme='https', netloc='24h.pchome.com.tw', path='/prod/DYAJFQ-1900A9TCG', params='', query='', fragment='')
+
+## requests 
+
+```py
+import requests
+import urllib.parse as up
+
+def search(word):
+    word = up.quote(word)
+    url = f'https://www.google.com/search?q={word}'
+
+    response = requests.get(url)
+
+    if response.status_code != 200:
+        print('request error')
+        return
+
+    with open('google.html','w') as f:
+        f.write(response.text)
+
+    print(response.text)
+
+if __main__ == '__main__':
+    search('vti')
+```
