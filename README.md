@@ -76,3 +76,18 @@ d = [{
 }]
 print(json.dumps(d)) #[{"name": "hsu"}]
 ```
+
+## url
+
+https://repl.it/languages/python3
+
+```py
+import urllib.parse as up
+
+url = 'https://24h.pchome.com.tw/prod/DYAJFQ-1900A9TCG'
+result = up.urlparse(url)
+print(result)
+print(result.path.split('/')[-1]) #DYAJFQ-1900A9TCG
+```
+
+ParseResult(scheme='https', netloc='24h.pchome.com.tw', path='/prod/DYAJFQ-1900A9TCG', params='', query='', fragment='')
