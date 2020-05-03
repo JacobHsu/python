@@ -98,20 +98,29 @@ ParseResult(scheme='https', netloc='24h.pchome.com.tw', path='/prod/DYAJFQ-1900A
 import requests
 import urllib.parse as up
 
+import chardet
+
 def search(word):
     word = up.quote(word)
     url = f'https://www.google.com/search?q={word}'
 
-    response = requests.get(url)
+    response = requests.get(
+        url,
+        headers={
+            'Cookie': '<請自行從瀏覽器取得'
+        }
+    )
 
     if response.status_code != 200:
         print('request error')
         return
 
-    with open('google.html','w') as f:
-        f.write(response.text)
+    with open('google.html','wb') as f:
+        f.write(response.content)
 
     print(response.text)
+
+    print(chardet.detect(response.content)) # {'encoding':'Big5', 'confidence':0.99, 'language':'Chinese'}
 
 if __main__ == '__main__':
     search('vti')
