@@ -1,9 +1,3 @@
-## getFacebookWall
-
-devtools / [network] clear [*] preserve log > Headers > cookie
-python facebook
-
-```py
 import lxml.etree
 import lxml.html
 import requests
@@ -13,7 +7,7 @@ def getFacebookWall():
     response = requests.get(
         'https://www.facebook.com/',
         headers={
-            'Cookie': '<請自行從瀏覽器取得>'
+            'Cookie': '<devtools / [network] clear [*] preserve log > Headers > cookie>'
         }
     )
     if response.status_code != 200:
@@ -57,16 +51,3 @@ def getFacebookWall():
 
 if __name__ == '__main__':
     getFacebookWall()
-```
-
-### note 
-
-$ python -V
-Python 2.7.15
-
-$ python -V
-Python 3.8.2
-
-python -m pip install --upgrade pip
-pip install requests  
-pip install lxml  
