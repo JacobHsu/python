@@ -21,8 +21,8 @@ def getFacebookWall():
         html = lxml.etree.tostring(html, pretty_print=True)
         f.write(html)
     
-    d = pyquery.PyQuery(response.text)
-    elems = d('div.hidden_elem > code')
+    d = pyquery.PyQuery(response.text) # HTML轉DOM文件
+    elems = d('div.hidden_elem > code') #d相當於jQuery $
     # 分析時，因無法短時間找出規則，先把各個註解部分輸出存檔
     for idx, elem in enumerate(elems.items()):
         elem_html = elem.html()[5:-4]
